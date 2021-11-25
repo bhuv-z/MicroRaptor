@@ -16,11 +16,13 @@
 
 import abc
 from typing import Any, Dict, Optional
-
 import brax
+from custom_envs import bolt
+# from MicroRaptor.custom_envs import human
 from flax import struct
 import jax
 import jax.numpy as jnp
+from brax.physics import system
 
 from google.protobuf import text_format
 
@@ -42,7 +44,7 @@ class Env(abc.ABC):
   def __init__(self, config: Optional[str]):
     if config:
       config = text_format.Parse(config, brax.Config())
-      self.sys = brax.System(config)
+      self.sys = system.System(config)
 
   @abc.abstractmethod
   def reset(self, rng: jnp.ndarray) -> State:

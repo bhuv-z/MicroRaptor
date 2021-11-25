@@ -19,13 +19,13 @@ import functools
 from typing import Callable, Optional, Union, overload
 
 import brax
-from custom_envs import bolt
+from custom_envs import bolt #, bolt
 from brax.envs import wrappers
 from brax.envs.env import Env, State, Wrapper
 import gym
 
 _envs = {
-    'bolt': bolt.Bolt,
+    'bolt': bolt.Bolt
 }
 
 
